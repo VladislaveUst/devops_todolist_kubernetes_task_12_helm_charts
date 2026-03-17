@@ -5,3 +5,13 @@ metadata:
 spec:
   capacity:
     storage: {{ .Values.pv.capacity }}
+
+  accessModes:
+    - ReadWriteOnce
+
+  persistentVolumeReclaimPolicy: Retain
+
+  storageClassName: manual
+
+  hostPath:
+    path: "/mnt/data/{{ .Chart.Name }}"
